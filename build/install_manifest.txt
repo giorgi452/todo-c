@@ -1,0 +1,2 @@
+/home/giorgi/Programming/todo-c/build/_CPack_Packages/Linux/ZIP/TodoC-1.0-Linux/bin/todo-c
+/home/giorgi/Programming/todo-c/build/_CPack_Packages/Linux/ZIP/TodoC-1.0-Linux/database/database.db

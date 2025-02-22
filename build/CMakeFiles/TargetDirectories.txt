@@ -1,0 +1,9 @@
+/home/giorgi/Programming/todo-c/build/CMakeFiles/todo-c.dir
+/home/giorgi/Programming/todo-c/build/CMakeFiles/package.dir
+/home/giorgi/Programming/todo-c/build/CMakeFiles/package_source.dir
+/home/giorgi/Programming/todo-c/build/CMakeFiles/edit_cache.dir
+/home/giorgi/Programming/todo-c/build/CMakeFiles/rebuild_cache.dir
+/home/giorgi/Programming/todo-c/build/CMakeFiles/list_install_components.dir
+/home/giorgi/Programming/todo-c/build/CMakeFiles/install.dir
+/home/giorgi/Programming/todo-c/build/CMakeFiles/install/local.dir
+/home/giorgi/Programming/todo-c/build/CMakeFiles/install/strip.dir
