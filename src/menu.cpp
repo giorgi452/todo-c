@@ -5,8 +5,9 @@ void drawMenu(Operation *op) {
   // Main Menu
   std::cout << "[1] Create Board\n";
   std::cout << "[2] Choose Board\n";
-  std::cout << "[3] Delete Board\n";
-  std::cout << "[4] Exit\n";
+  std::cout << "[3] Edit Board\n";
+  std::cout << "[4] Delete Board\n";
+  std::cout << "[5] Exit\n";
 
   std::cout << "Choose Operation: ";
   int oper = 0;
@@ -19,9 +20,12 @@ void drawMenu(Operation *op) {
     *op = Operation::Choose;
     break;
   case 3:
-    *op = Operation::Delete;
+    *op = Operation::Edit;
     break;
   case 4:
+    *op = Operation::Delete;
+    break;
+  case 5:
     *op = Operation::Exit;
     break;
   default:
