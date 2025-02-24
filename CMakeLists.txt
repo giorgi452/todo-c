@@ -1,48 +1,30 @@
-cmake_minimum_required(VERSION 3.10)
-project(TodoC)
+cmake_minimum_required(VERSION 3.15)
+project(TodoC VERSION 1.0)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Locate SQLite
+# Define output directories
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
+
+# Cross-platform SQLite setup
 find_package(SQLite3 REQUIRED)
+include_directories(${SQLite3_INCLUDE_DIRS})
 
-# Add executable
-add_executable(todo-c src/main.cpp)
-target_link_libraries(todo-c PRIVATE SQLite::SQLite3)
+# Source files
+add_executable(TodoC src/main.cpp)
 
-# Define install directories
-install(TARGETS todo-c DESTINATION bin)
-install(FILES database/database.db DESTINATION database)
+# Link SQLite
+target_link_libraries(TodoC PRIVATE SQLite::SQLite3)
 
-# Windows: Include SQLite DLL in installer
-if(WIN32)
-    install(FILES ${CMAKE_SOURCE_DIR}/bin/sqlite3.dll DESTINATION bin)
-endif()
+# Install rules
+install(TARGETS TodoC DESTINATION bin)
 
-# Linux: Auto-install SQLite if missing
-# if(UNIX)
-#     install(CODE "
-#         if(EXISTS /etc/arch-release)
-#             execute_process(COMMAND sudo pacman -S --noconfirm sqlite)
-#         elseif(EXISTS /etc/debian_version)
-#             execute_process(COMMAND sudo apt-get install -y sqlite3)
-#         endif()
-#     ")
-# endif()
-
-# CPack Configuration
+# Packaging (NSIS for Windows, ZIP for Linux)
 set(CPACK_PACKAGE_NAME "TodoC")
-set(CPACK_PACKAGE_VERSION "1.0")
-set(CPACK_PACKAGE_VENDOR "GiorgiSoft")
-set(CPACK_GENERATOR "NSIS;ZIP")
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Todo with C++")
-set(CPACK_PACKAGE_INSTALL_DIRECTORY "TodoC")
-
-# Windows NSIS Installer settings
+set(CPACK_GENERATOR "ZIP")
 if(WIN32)
-    set(CPACK_NSIS_DISPLAY_NAME "TodoC Installer")
-    set(CPACK_NSIS_ENABLE_UNINSTALL_BEFORE_INSTALL ON)
-    set(CPACK_NSIS_MUI_ICON "${CMAKE_SOURCE_DIR}/icon.ico")
+    set(CPACK_GENERATOR "NSIS")
 endif()
 
 include(CPack)
