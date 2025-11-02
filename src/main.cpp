@@ -2,7 +2,6 @@
 #include "menu.cpp"
 #include "operation.h"
 #include "title.cpp"
-#include <cstdlib>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -12,16 +11,19 @@ int main(int argc, char **argv) {
   std::vector<Board> boards;
 
   while (1) {
+    system("clear");
     int board = 0;
     drawTitle();
     drawMenu(&op);
 
     switch (op) {
     case Operation::Create: {
+      system("clear");
       createBoard(&boards);
       break;
     }
     case Operation::Choose: {
+      system("clear");
       int e = chooseBoard(&boards, &board);
       if (e < 0) {
         break;
@@ -45,6 +47,7 @@ int main(int argc, char **argv) {
           break;
         }
         case 2: {
+          printTodos(boards, board);
           int todo;
           std::cout << "Enter Todo: ";
           std::cin >> todo;
@@ -52,6 +55,7 @@ int main(int argc, char **argv) {
           break;
         }
         case 3: {
+          printTodos(boards, board);
           int todo;
           std::string td;
           std::cout << "Enter Todo: ";
@@ -62,6 +66,7 @@ int main(int argc, char **argv) {
           break;
         }
         case 4: {
+          printTodos(boards, board);
           int todo;
           std::cout << "Enter Todo: ";
           std::cin >> todo;
@@ -78,6 +83,7 @@ int main(int argc, char **argv) {
       break;
     }
     case Operation::Edit: {
+      system("clear");
       int e = chooseBoard(&boards, &board);
       if (e < 0) {
         break;
@@ -90,6 +96,7 @@ int main(int argc, char **argv) {
       break;
     }
     case Operation::Delete: {
+      system("clear");
       int e = chooseBoard(&boards, &board);
       if (e < 0) {
         break;

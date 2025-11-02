@@ -46,6 +46,7 @@ int chooseBoard(std::vector<Board> *boards, int *board) {
 }
 
 void printTodos(std::vector<Board> boards, int board) {
+  system("clear");
   std::cout << "Todos\n";
   for (int i = 0; i < boards[board].todos.size(); i++) {
     std::cout << "[" << i << "] " << boards[board].todos[i].name;
